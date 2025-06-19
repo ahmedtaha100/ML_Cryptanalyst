@@ -19,13 +19,14 @@ The full survey — **“The Neural Cryptanalyst: Machine-Learning-Powered Side-
 ### 📑 How to cite
 
 ```bibtex
-@misc{taha2025neural,
+   @misc{taha2025neural,
   author       = {Ahmed Taha},
   title        = {The Neural Cryptanalyst: Machine-Learning-Powered Side-Channel Attacks — A Comprehensive Survey},
   year         = {2025},
   howpublished = {Preprint},
   url          = {https://github.com/ahmedtaha100/ML_Cryptanalyst}
 }
+   ```
 
 ## Requirements
 
