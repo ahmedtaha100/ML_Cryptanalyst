@@ -7,7 +7,12 @@
 
 This repository accompanies the research paper **"The Neural Cryptanalyst: Machine Learning-Powered Side Channel Attacks"** by **Ahmed Taha** (Johns Hopkins University, May 4, 2025). The work explores how convolutional neural networks (CNNs), long short-term memory networks (LSTMs), and Transformer-based models dramatically reduce the number of power traces needed to compromise cryptographic implementations.
 
-The paper can be found [here](https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en) on my Google Scholar.
+## 📄 Survey paper
+
+The full survey — **“The Neural Cryptanalyst: Machine-Learning-Powered Side-Channel Attacks – A Comprehensive Survey”** — is available in this repository and on Google Scholar:
+
+- [Download the PDF](./The%20Neural%20Cryptanalyst-%20Machine%20Learning-Powered%20Side%20Channel%20Attacks%20-%20A%20Comprehensive%20Survey.pdf)
+- The paper can also be found [here](https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en) on my Google Scholar profile.
 
 ## Requirements
 
