@@ -9,10 +9,23 @@ This repository accompanies the research paper **"The Neural Cryptanalyst: Machi
 
 ## 📄 Survey paper
 
-The full survey — **“The Neural Cryptanalyst: Machine-Learning-Powered Side-Channel Attacks – A Comprehensive Survey”** — is available in this repository and on Google Scholar:
+The full survey — “The Neural Cryptanalyst: Machine‑Learning‑Powered Side‑Channel Attacks – A Comprehensive Survey” — is available:
 
-- [Download the PDF](./The%20Neural%20Cryptanalyst-%20Machine%20Learning-Powered%20Side%20Channel%20Attacks%20-%20A%20Comprehensive%20Survey.pdf)
-- The paper can also be found [here](https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en) on my Google Scholar profile.
+Direct PDF: NeuralCryptanalyst_Survey.pdf(raw link: https://raw.githubusercontent.com/ahmedtaha100/ML_Cryptanalyst/main/NeuralCryptanalyst_Survey.pdf)
+
+Google Scholar entry: https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en
+
+arXiv (pending): will be updated when the pre‑print is announced.
+
+To cite the survey:
+
+@misc{taha2025neural,
+  author    = {Ahmed Taha},
+  title     = {The Neural Cryptanalyst: Machine‑Learning‑Powered Side‑Channel Attacks — A Comprehensive Survey},
+  year      = {2025},
+  howpublished = {Preprint},
+  url       = {https://github.com/ahmedtaha100/ML_Cryptanalyst}
+}
 
 ## Requirements
 
