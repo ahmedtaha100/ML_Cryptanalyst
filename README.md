@@ -13,6 +13,7 @@ The full survey — **“The Neural Cryptanalyst: Machine-Learning-Powered Side-
 
 * **Direct PDF:** [The Neural Cryptanalyst – Machine Learning-Powered Side Channel Attacks – A Comprehensive Survey.pdf](https://github.com/ahmedtaha100/ML_Cryptanalyst/blob/main/The%20Neural%20Cryptanalyst-%20Machine%20Learning-Powered%20Side%20Channel%20Attacks%20-%20A%20Comprehensive%20Survey.pdf)
 * **Raw link:** <https://raw.githubusercontent.com/ahmedtaha100/ML_Cryptanalyst/main/NeuralCryptanalyst_Survey.pdf>
+* **Zenodo:** <https://doi.org/10.5281/zenodo.15694329>
 * **Google Scholar entry:** <https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en>
 * **arXiv (pending):** will be updated when the pre-print is announced.
 
