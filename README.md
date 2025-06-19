@@ -147,16 +147,8 @@ python -m neural_cryptanalyst.datasets.download
 # DPA Contest v4 requires manual download from http://www.dpacontest.org/
 ```
 
-## Citation
+## iThenticate Plagiarism Report
 
-If you use this code, please cite:
-
-```
-@article{taha2025neural,
-  title={Neural Cryptanalyst: Machine Learning-Powered Side Channel Attacks},
-  author={Taha, Ahmed},
-  year={2025}
-}
-```
+In the main directory, you'll find the iThenticate Plagiarism Report. 
 
 <small>© 2025 Ahmed Taha. All rights reserved.</small>
