@@ -148,13 +148,14 @@ python -m neural_cryptanalyst.datasets.download
 ```
 
 
-## iThenticate Plagiarism Report
+## Academic Integrity and Plagiarism Reports Found in tht Main Directory
 
 In the main directory, you'll find comprehensive academic integrity verification reports:
 
-- **[iThenticate Plagiarism Report.html](iThenticate%20Plagiarism%20Report.html)** - Professional plagiarism analysis showing 10% similarity index
-- **[Grammarly Plagiarism Report.pdf](Grammarly%20Plagiarism%20Report.pdf)** - Additional plagiarism verification  
-- **[GPTZero AI Detection Report.pdf](GPTZero%20AI%20Detection%20Report.pdf)** - AI content detection analysis
+- **[iThenticate Plagiarism Report.html](iThenticate Plagiarism Report.html)** - Professional plagiarism analysis showing 10% similarity index
+- **[iThenticate Plagiarism Report.pdf](iThenticate Plagiarism Report.pdf)** - PDF version of the plagiarism analysis
+- **[Grammarly Report.pdf](Grammarly Report.pdf)** - Additional plagiarism verification  
+- **[GPTZero AI Scan - .pdf](GPTZero AI Scan - .pdf)** - AI content detection and plagiarism analysis
 
 These reports demonstrate the originality and academic integrity of this research work.
 
