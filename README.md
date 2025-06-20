@@ -243,6 +243,9 @@ Install in development mode: `pip install -e .`
 # Force compatible version
 pip install 'tensorflow>=2.8.0,<2.14.0'
 ```
+## 🔒 Security Notice
+
+This toolkit is intended for research and educational purposes only. It demonstrates vulnerabilities in cryptographic implementations to help improve security. Users are responsible for ensuring their use complies with applicable laws and regulations.
 
 ## Academic Integrity and Plagiarism Reports
 
