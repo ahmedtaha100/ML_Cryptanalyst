@@ -250,26 +250,4 @@ In the main directory, you'll find comprehensive academic integrity verification
 
 These reports demonstrate the originality and academic integrity of this research work.
 
-## 🤝 Contributing
-
-We welcome contributions! Areas of interest include:
-- Additional neural network architectures
-- Support for more cryptographic algorithms
-- Improved countermeasures
-- Performance optimizations
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- ANSSI for the ASCAD dataset
-- DPA Contest organizers for reference implementations
-- Johns Hopkins University, EN.695.641.81.SP25 Cryptology course (Spring 2025)
-- Prof. Tom McGuire for course instruction
-- The side-channel analysis research community
-
----
-
 <small>© 2025 Ahmed Taha. All rights reserved.</small>
