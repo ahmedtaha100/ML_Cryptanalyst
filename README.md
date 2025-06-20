@@ -11,7 +11,7 @@ This repository accompanies the research paper **"The Neural Cryptanalyst: Machi
 
 The full survey — **"The Neural Cryptanalyst: Machine-Learning-Powered Side-Channel Attacks – A Comprehensive Survey"** — is available:
 
-* **Direct PDF:** [The Neural Cryptanalyst.pdf](https://github.com/AhmedTaha100/ML_Cryptanalyst/blob/main/The%20Neural%20Cryptanalyst.pdf)
+* **Direct PDF:** [The Neural Cryptanalyst.docx](https://github.com/AhmedTaha100/ML_Cryptanalyst/blob/main/The%20Neural%20Cryptanalyst.docx)
 * **Zenodo:** <https://doi.org/10.5281/zenodo.15694329>
 * **Google Scholar:** <https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en>
 * **arXiv:** [Coming soon]
@@ -47,35 +47,29 @@ The full survey — **"The Neural Cryptanalyst: Machine-Learning-Powered Side-Ch
 
 ## Quick Start
 
-1. **Clone and install dependencies**
-   ```bash
-   git clone https://github.com/AhmedTaha100/ML_Cryptanalyst.git
-   cd ML_Cryptanalyst
-   pip install -r requirements.txt
-   ```
+1. **Clone and install**
+```bash
+git clone https://github.com/AhmedTaha100/ML_Cryptanalyst.git
+cd ML_Cryptanalyst
+pip install -e .  # This installs all dependencies from setup.py
+```
+2. **Install test requirements (optional)**
+```bash
+pip install -r requirements-dev.txt
+```
 
-2. **Install in development mode (recommended)**
-   ```bash
-   pip install -e .
-   # Or with all optional dependencies:
-   pip install -e ".[all]"
-   ```
+3. **Run the demonstration script**
+```bash
+python neural_cryptanalyst_cli.py
+```
 
-3. **Install test requirements (optional)**
-   ```bash
-   pip install -r requirements-dev.txt
-   ```
+4. **Run unit tests**
+```bash
+chmod +x scripts/setup_test_env.sh
+./scripts/setup_test_env.sh
+pytest
+```
 
-4. **Run the demonstration script**
-   ```bash
-   python neural_cryptanalyst_cli.py
-   ```
-
-5. **Run unit tests**
-   ```bash
-   ./scripts/setup_test_env.sh
-   pytest
-   ```
 
 ## Dataset Setup
 
@@ -113,11 +107,19 @@ ML_Cryptanalyst/
 ```python
 from neural_cryptanalyst.attacks.profiled import ProfiledAttack
 from neural_cryptanalyst.models import SideChannelCNN
+from neural_cryptanalyst.datasets import ASCADDataset
+
+# Load dataset
+dataset = ASCADDataset()
+training_traces, training_labels = dataset.load_ascad_v1("ASCAD_data/ASCAD.h5")
 
 # Train and execute attack
-attack = ProfiledAttack(model=SideChannelCNN(trace_length=5000))
-attack.train_model(training_traces, training_labels)
-predictions = attack.attack(test_traces)
+attack = ProfiledAttack(model=SideChannelCNN(trace_length=700))
+attack.train_model(training_traces[:45000], training_labels[:45000])
+
+# Attack
+test_traces, _ = dataset.get_attack_set("ASCAD_data/ASCAD.h5")
+predictions = attack.attack(test_traces[:100])
 ```
 
 ### With Preprocessing Pipeline
@@ -136,6 +138,33 @@ poi_indices, selected_traces = selector.select_poi_sost(processed, training_labe
 
 # Train model on selected features
 attack.train_model(selected_traces, training_labels)
+```
+### Complete Attack Pipeline
+
+```python
+from neural_cryptanalyst import ProfiledAttack, SideChannelCNN, TracePreprocessor, FeatureSelector
+from neural_cryptanalyst.datasets import ASCADDataset
+
+# Load data
+dataset = ASCADDataset()
+traces, labels = dataset.load_ascad_v1("ASCAD_data/ASCAD.h5")
+
+# Preprocess
+preprocessor = TracePreprocessor()
+preprocessor.fit(traces[:1000])  # Fit on subset
+processed = preprocessor.preprocess_traces(traces)
+
+# Select POIs
+selector = FeatureSelector()
+poi_indices, selected = selector.select_poi_sost(processed[:45000], labels[:45000], num_poi=700)
+
+# Train attack
+attack = ProfiledAttack(model=SideChannelCNN(trace_length=700))
+attack.train_model(selected[:45000], labels[:45000], epochs=50)
+
+# Execute attack
+test_selected = selector.transform(processed[45000:])
+predictions = attack.attack(test_selected[:100])
 ```
 
 See [`examples/`](examples/) for complete end-to-end workflows and [`paper_reproduction/`](paper_reproduction/) to reproduce paper results.
@@ -220,5 +249,27 @@ In the main directory, you'll find comprehensive academic integrity verification
 - **[GPTZero AI Scan - .pdf](GPTZero%20AI%20Scan%20-%20.pdf)** - AI content detection and plagiarism analysis
 
 These reports demonstrate the originality and academic integrity of this research work.
+
+## 🤝 Contributing
+
+We welcome contributions! Areas of interest include:
+- Additional neural network architectures
+- Support for more cryptographic algorithms
+- Improved countermeasures
+- Performance optimizations
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- ANSSI for the ASCAD dataset
+- DPA Contest organizers for reference implementations
+- Johns Hopkins University, EN.695.641.81.SP25 Cryptology course (Spring 2025)
+- Prof. Tom McGuire for course instruction
+- The side-channel analysis research community
+
+---
 
 <small>© 2025 Ahmed Taha. All rights reserved.</small>
