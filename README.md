@@ -1,75 +1,106 @@
 # Neural Cryptanalyst: Machine Learning-Powered Side Channel Attacks
 
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.8-3.10](https://img.shields.io/badge/python-3.8--3.10-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://github.com/ahmedtaha100/neural_cryptanalyst/actions/workflows/tests.yml/badge.svg)](https://github.com/ahmedtaha100/neural_cryptanalyst/actions)
+[![Tests](https://github.com/AhmedTaha100/ML_Cryptanalyst/actions/workflows/tests.yml/badge.svg)](https://github.com/AhmedTaha100/ML_Cryptanalyst/actions)
 [![Documentation](https://img.shields.io/badge/docs-available-green.svg)](docs/)
 
-This repository accompanies the research paper **"The Neural Cryptanalyst: Machine Learning-Powered Side Channel Attacks"** by **Ahmed Taha** (Johns Hopkins University, May 4, 2025). The work explores how convolutional neural networks (CNNs), long short-term memory networks (LSTMs), and Transformer-based models dramatically reduce the number of power traces needed to compromise cryptographic implementations.
+This repository accompanies the research paper **"The Neural Cryptanalyst: Machine Learning-Powered Side Channel Attacks"** by **Ahmed Taha** (Johns Hopkins University, 2025). The work explores how convolutional neural networks (CNNs), long short-term memory networks (LSTMs), and Transformer-based models dramatically reduce the number of power traces needed to compromise cryptographic implementations.
 
-## 📄 Survey paper
+## 📄 Survey Paper
 
-The full survey — **“The Neural Cryptanalyst: Machine-Learning-Powered Side-Channel Attacks – A Comprehensive Survey”** — is available:
+The full survey — **"The Neural Cryptanalyst: Machine-Learning-Powered Side-Channel Attacks – A Comprehensive Survey"** — is available:
 
-* **Direct PDF:** [The Neural Cryptanalyst – Machine Learning-Powered Side Channel Attacks – A Comprehensive Survey.pdf](https://github.com/ahmedtaha100/ML_Cryptanalyst/blob/main/The%20Neural%20Cryptanalyst-%20Machine%20Learning-Powered%20Side%20Channel%20Attacks%20-%20A%20Comprehensive%20Survey.pdf)
-* **Raw link:** <https://raw.githubusercontent.com/ahmedtaha100/ML_Cryptanalyst/main/NeuralCryptanalyst_Survey.pdf>
+* **Direct PDF:** [The Neural Cryptanalyst.pdf](https://github.com/AhmedTaha100/ML_Cryptanalyst/blob/main/The%20Neural%20Cryptanalyst.pdf)
 * **Zenodo:** <https://doi.org/10.5281/zenodo.15694329>
-* **Google Scholar entry:** <https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en>
-* **arXiv (pending):** will be updated when the pre-print is announced.
+* **Google Scholar:** <https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en>
+* **arXiv:** [Coming soon]
 
 ### 📑 How to cite
 
 ```bibtex
-   @misc{taha2025neural,
+@misc{taha2025neural,
   author       = {Ahmed Taha},
   title        = {The Neural Cryptanalyst: Machine-Learning-Powered Side-Channel Attacks — A Comprehensive Survey},
   year         = {2025},
   howpublished = {Preprint},
-  url          = {https://github.com/ahmedtaha100/ML_Cryptanalyst}
+  url          = {https://github.com/AhmedTaha100/ML_Cryptanalyst},
+  doi          = {10.5281/zenodo.15694329}
 }
-   ```
+```
+
+## 🔬 Key Features
+
+- **State-of-the-art neural architectures**: CNN, LSTM, Transformer, and hybrid models optimized for side-channel analysis
+- **Automated preprocessing pipeline**: Alignment, filtering, and Points of Interest (POI) selection
+- **Comprehensive attack suite**: Profiled and non-profiled attacks on AES, RSA, and ECC
+- **Advanced countermeasures**: Masking, hiding, and constant-time implementations
+- **Reproducible research**: Complete scripts to reproduce all paper results
 
 ## Requirements
 
-- Python 3.8-3.10 (TensorFlow 2.8+ compatibility)
+- Python 3.8-3.10 (TensorFlow 2.14+ dropped Python 3.8 support)
 - 8GB+ RAM (16GB recommended for large datasets)
 - GPU with 8GB+ VRAM (optional but recommended)
-- ~5GB disk space for datasets
+- ~10GB disk space for datasets
+- Ubuntu 20.04+ or Windows 10/11 (macOS supported but not tested in CI)
 
-## Quick start
+## Quick Start
 
 1. **Clone and install dependencies**
    ```bash
-   git clone https://github.com/ahmedtaha100/neural_cryptanalyst.git
-   cd neural_cryptanalyst
+   git clone https://github.com/AhmedTaha100/ML_Cryptanalyst.git
+   cd ML_Cryptanalyst
    pip install -r requirements.txt
    ```
 
-2. **(Optional) Install test requirements**
+2. **Install in development mode (recommended)**
+   ```bash
+   pip install -e .
+   # Or with all optional dependencies:
+   pip install -e ".[all]"
+   ```
+
+3. **Install test requirements (optional)**
    ```bash
    pip install -r requirements-dev.txt
    ```
 
-3. **Run the demonstration script**
+4. **Run the demonstration script**
    ```bash
    python neural_cryptanalyst_cli.py
    ```
 
-4. **Run unit tests**
+5. **Run unit tests**
    ```bash
    ./scripts/setup_test_env.sh
    pytest
    ```
 
+## Dataset Setup
+
+### Option 1: ASCAD Dataset (Recommended for Real Experiments)
+1. Visit the [ASCAD GitHub repository](https://github.com/ANSSI-FR/ASCAD)
+2. Download `ASCAD_data.zip` from their releases
+3. Extract `ASCAD.h5` to `./ASCAD_data/` directory
+
+### Option 2: Generate Synthetic Datasets (For Testing)
+```bash
+python -m neural_cryptanalyst.datasets.download
+```
+
 ## Project Structure
 
 ```
-neural_cryptanalyst/
+ML_Cryptanalyst/
 ├── src/neural_cryptanalyst/
 │   ├── models/              # CNN, LSTM, Transformer architectures
 │   ├── attacks/             # Profiled and non-profiled attacks
 │   ├── preprocessing/       # Trace alignment, filtering, POI selection
-│   └── countermeasures/     # Masking, hiding, constant-time implementations
+│   ├── countermeasures/     # Masking, hiding, constant-time implementations
+│   ├── datasets/            # Dataset loaders and utilities
+│   ├── detection/           # ML-based attack detection
+│   └── visualization/       # Plotting utilities
 ├── examples/                # Basic and advanced usage examples
 ├── paper_reproduction/      # Scripts to reproduce all paper results
 └── tests/                   # Comprehensive test suite
@@ -111,13 +142,24 @@ See [`examples/`](examples/) for complete end-to-end workflows and [`paper_repro
 
 ## Performance
 
-| Model | Traces Required | Success Rate | Best For |
-|-------|-----------------|--------------|----------|
-| CNN | 500-1,000 | 92% | General purpose, masked implementations |
-| LSTM | 700-1,200 | 90% | Misaligned/desynchronized traces |
-| Transformer | 100-300 | 96% | Best accuracy, computational cost higher |
+### Attack Performance (from paper)
 
-*Results on ASCAD database with first-order masked AES implementation*
+| Attack Type | Traditional Methods | ML-Enhanced | Trace Reduction |
+|-------------|---------------------|-------------|-----------------|
+| Unmasked AES | 5,000-10,000 traces | 50-200 traces | 80-90% |
+| First-order Masked AES | 5,000-10,000 traces | 500-1,000 traces | 80-90% |
+| Second-order Masked AES | 50,000+ traces | 3,000-5,000 traces | 90%+ |
+
+### Model Comparison
+
+| Model | Traces Required | Success Rate¹ | Best For |
+|-------|-----------------|--------------|----------|
+| CNN | 500-1,000 | 70-85% | General purpose, masked implementations |
+| LSTM | 700-1,200 | 60-75% | Misaligned/desynchronized traces |
+| Transformer | 100-300 | 20-40% better² | Best accuracy, computational cost higher |
+
+¹ On first-order masked AES (ASCAD dataset)  
+² Improvement over CNN baseline
 
 ## Documentation
 
@@ -129,26 +171,46 @@ See [`examples/`](examples/) for complete end-to-end workflows and [`paper_repro
 
 **GPU not detected**  
 ```bash
-export CUDA_VISIBLE_DEVICES=0  # Use first GPU
-# Or disable GPU: export CUDA_VISIBLE_DEVICES=-1
+# Check GPU availability
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices('GPU'))"
+
+# Use specific GPU
+export CUDA_VISIBLE_DEVICES=0
+
+# Or disable GPU
+export CUDA_VISIBLE_DEVICES=-1
 ```
 
 **Out of memory errors**
 - Reduce batch size: `train_model(..., batch_size=32)`
 - For large datasets: `TracePipeline.process_large_dataset(filepath, batch_size=1000)`
+- Enable GPU memory growth:
+  ```python
+  import tensorflow as tf
+  gpus = tf.config.experimental.list_physical_devices('GPU')
+  if gpus:
+      tf.config.experimental.set_memory_growth(gpus[0], True)
+  ```
 
 **Import errors**  
 Install in development mode: `pip install -e .`
 
 **Dataset download issues**
+- ASCAD requires manual download from their GitHub
+- DPA Contest v4 requires registration at http://www.dpacontest.org/
+- Use synthetic datasets for testing: `python -m neural_cryptanalyst.datasets.download`
+
+**TensorFlow version conflicts**
 ```bash
-# Download ASCAD dataset
-python -m neural_cryptanalyst.datasets.download
-# DPA Contest v4 requires manual download from http://www.dpacontest.org/
+# Force compatible version
+pip install 'tensorflow>=2.8.0,<2.14.0'
 ```
 
+## 🔒 Security Notice
 
-## Academic Integrity and Plagiarism Reports Found in the Main Directory
+This toolkit is intended for research and educational purposes only. It demonstrates vulnerabilities in cryptographic implementations to help improve security. Users are responsible for ensuring their use complies with applicable laws and regulations.
+
+## Academic Integrity and Plagiarism Reports
 
 In the main directory, you'll find comprehensive academic integrity verification reports:
 
