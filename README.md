@@ -126,6 +126,11 @@ predictions = attack.attack(test_traces[:100])
 
 ```python
 from neural_cryptanalyst import TracePreprocessor, FeatureSelector
+from neural_cryptanalyst.datasets import ASCADDataset
+
+# Load dataset first
+dataset = ASCADDataset()
+training_traces, training_labels = dataset.load_ascad_v1('ASCAD_data/ASCAD.h5')
 
 # Preprocess traces
 preprocessor = TracePreprocessor()
@@ -137,6 +142,10 @@ selector = FeatureSelector()
 poi_indices, selected_traces = selector.select_poi_sost(processed, training_labels, num_poi=1000)
 
 # Train model on selected features
+from neural_cryptanalyst.attacks.profiled import ProfiledAttack
+from neural_cryptanalyst.models import SideChannelCNN
+
+attack = ProfiledAttack(model=SideChannelCNN(trace_length=1000))
 attack.train_model(selected_traces, training_labels)
 ```
 ### Complete Attack Pipeline
