@@ -147,8 +147,15 @@ python -m neural_cryptanalyst.datasets.download
 # DPA Contest v4 requires manual download from http://www.dpacontest.org/
 ```
 
+
 ## iThenticate Plagiarism Report
 
-In the main directory, you'll find the iThenticate Plagiarism Report. 
+In the main directory, you'll find comprehensive academic integrity verification reports:
+
+- **[iThenticate Plagiarism Report.html](iThenticate%20Plagiarism%20Report.html)** - Professional plagiarism analysis showing 10% similarity index
+- **[Grammarly Plagiarism Report.pdf](Grammarly%20Plagiarism%20Report.pdf)** - Additional plagiarism verification  
+- **[GPTZero AI Detection Report.pdf](GPTZero%20AI%20Detection%20Report.pdf)** - AI content detection analysis
+
+These reports demonstrate the originality and academic integrity of this research work.
 
 <small>© 2025 Ahmed Taha. All rights reserved.</small>
