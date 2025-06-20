@@ -11,7 +11,7 @@ This repository accompanies the research paper **"The Neural Cryptanalyst: Machi
 
 The full survey — **"The Neural Cryptanalyst: Machine-Learning-Powered Side-Channel Attacks – A Comprehensive Survey"** — is available:
 
-* **Direct PDF:** [The Neural Cryptanalyst.docx](https://github.com/AhmedTaha100/ML_Cryptanalyst/blob/main/The%20Neural%20Cryptanalyst.docx)
+* **Direct PDF:** [The Neural Cryptanalyst - Machine Learning-Powered Side Channel Attacks - A Comprehensive Survey.pdf](https://github.com/AhmedTaha100/ML_Cryptanalyst/blob/main/The%20Neural%20Cryptanalyst-%20Machine%20Learning-Powered%20Side%20Channel%20Attacks%20-%20A%20Comprehensive%20Survey.pdf)
 * **Zenodo:** <https://doi.org/10.5281/zenodo.15694329>
 * **Google Scholar:** <https://scholar.google.com/citations?user=FQ1XbKcAAAAJ&hl=en>
 * **arXiv:** [Coming soon]
